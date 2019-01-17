@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.domain.FacebookUserInfo;
 import com.spring.domain.GoogleUserInfo;
 import com.spring.service.SignService;
 
@@ -15,18 +16,28 @@ import com.spring.service.SignService;
 public class SignController {
 
 	@Autowired
-	SignService googleService;
+	SignService signService;
 
 	@PostMapping("/googleAuth")
 	public ResponseEntity<GoogleUserInfo> googleAuthorization(String code) {
-		System.out.println(code);
 
-		GoogleUserInfo googleUserInfo = googleService.getGoogleUserInfo(code);
+		GoogleUserInfo googleUserInfo = signService.getGoogleUserInfo(code);
 
 		if(googleUserInfo == null)
 			throw new NullPointerException();
 
 		return new ResponseEntity<GoogleUserInfo>(googleUserInfo, HttpStatus.OK);
+	}
+
+	@PostMapping("/facebook")
+	public ResponseEntity<FacebookUserInfo> facebookAuthorization(String accessToken) {
+
+		FacebookUserInfo facebookUserInfo = signService.getFacebookUserInfo(accessToken);
+
+		if(facebookUserInfo == null)
+			throw new NullPointerException();
+
+		return new ResponseEntity<FacebookUserInfo>(facebookUserInfo, HttpStatus.OK);
 	}
 
 }

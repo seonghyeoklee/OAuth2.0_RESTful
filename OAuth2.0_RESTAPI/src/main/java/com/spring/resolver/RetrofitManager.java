@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.google.gson.Gson;
+import com.spring.rest.FacebookUserInfoAPI;
 import com.spring.rest.GoogleOAuthAPI;
 import com.spring.rest.GoogleUserInfoAPI;
 
@@ -22,6 +23,11 @@ public class RetrofitManager {
 	@Bean
 	public GoogleUserInfoAPI getGoogleUserInfo() {
 		return getRetrofit(GoogleUserInfoAPI.BASE_URL).create(GoogleUserInfoAPI.class);
+	}
+
+	@Bean
+	public FacebookUserInfoAPI getFacebookUserInfoAPI() {
+		return getRetrofit(FacebookUserInfoAPI.BASE_URL).create(FacebookUserInfoAPI.class);
 	}
 
 	private Retrofit getRetrofit(String BASE_URL) {

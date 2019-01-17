@@ -11,4 +11,10 @@ public class HomeController {
 
 		return "/google";
 	}
+
+	@RequestMapping("/facebook")
+	public String facebook() {
+
+		return "/facebook";
+	}
 }
