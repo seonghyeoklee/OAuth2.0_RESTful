@@ -32,7 +32,7 @@
 				
 				$.ajax({
 					type		: "POST",
-					url		: "/sign/facebook",
+					url			: "/sign/facebook",
 					data		: {accessToken : response.authResponse.accessToken},
 					success: function(result){
 						console.log(result);

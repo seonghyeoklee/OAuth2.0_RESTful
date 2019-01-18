@@ -9,9 +9,11 @@ import com.google.gson.GsonBuilder;
 import com.spring.domain.FacebookUserInfo;
 import com.spring.domain.GoogleAuth;
 import com.spring.domain.GoogleUserInfo;
+import com.spring.domain.KakaoUserInfo;
 import com.spring.rest.FacebookUserInfoAPI;
 import com.spring.rest.GoogleOAuthAPI;
 import com.spring.rest.GoogleUserInfoAPI;
+import com.spring.rest.KakaoUserInfoAPI;
 
 import retrofit2.Response;
 
@@ -26,6 +28,9 @@ public class SignServiceImpl implements SignService{
 
 	@Autowired
 	FacebookUserInfoAPI facebookUserInfoAPI;
+
+	@Autowired
+	KakaoUserInfoAPI kakaoUserInfoAPI;
 
 	@Override
 	public GoogleUserInfo getGoogleUserInfo(String code) {
@@ -58,6 +63,21 @@ public class SignServiceImpl implements SignService{
 			e.printStackTrace();
 		}
 
+		return null;
+	}
+
+	@Override
+	public KakaoUserInfo getKakaoUserInfo(String authorization) {
+		try {
+			KakaoUserInfo kakaoUserInfo = kakaoUserInfoAPI.userInfoByToken("Bearer " + authorization).execute().body();
+
+			System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(kakaoUserInfo));
+
+			return kakaoUserInfo;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 }

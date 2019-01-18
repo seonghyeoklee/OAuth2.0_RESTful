@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.spring.rest.FacebookUserInfoAPI;
 import com.spring.rest.GoogleOAuthAPI;
 import com.spring.rest.GoogleUserInfoAPI;
+import com.spring.rest.KakaoUserInfoAPI;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -28,6 +29,11 @@ public class RetrofitManager {
 	@Bean
 	public FacebookUserInfoAPI getFacebookUserInfoAPI() {
 		return getRetrofit(FacebookUserInfoAPI.BASE_URL).create(FacebookUserInfoAPI.class);
+	}
+
+	@Bean
+	public KakaoUserInfoAPI getKakaoUserInfoAPI() {
+		return getRetrofit(KakaoUserInfoAPI.BASE_URL).create(KakaoUserInfoAPI.class);
 	}
 
 	private Retrofit getRetrofit(String BASE_URL) {
