@@ -1,6 +1,8 @@
 # OAuth2.0_RESTful
 eclipse (spring-maven)
 
-kakao, google, fackebook의 사용자 정보를 조회하는 api입니다.
+java : 1.8
 
-version : kakao(v2 API), facebook(v3.2)
+springframwork : 5.0.7.RELEASE
+
+social version : kakao(v2 API), facebook(v3.2)
