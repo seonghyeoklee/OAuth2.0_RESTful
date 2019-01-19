@@ -17,4 +17,10 @@ public class HomeController {
 
 		return "/facebook";
 	}
+
+	@RequestMapping("/kakao")
+	public String kakao() {
+
+		return "/kakao";
+	}
 }

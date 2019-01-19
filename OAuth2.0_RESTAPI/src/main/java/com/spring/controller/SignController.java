@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.domain.FacebookUserInfo;
 import com.spring.domain.GoogleUserInfo;
+import com.spring.domain.KakaoUserInfo;
 import com.spring.service.SignService;
 
 @RestController
@@ -38,6 +39,17 @@ public class SignController {
 			throw new NullPointerException();
 
 		return new ResponseEntity<FacebookUserInfo>(facebookUserInfo, HttpStatus.OK);
+	}
+
+	@PostMapping("/kakao")
+	public ResponseEntity<KakaoUserInfo> kakaoAuthorization(String authorization) {
+
+		KakaoUserInfo kakaoUserInfo = signService.getKakaoUserInfo(authorization);
+
+		if(kakaoUserInfo == null)
+			throw new NullPointerException();
+
+		return new ResponseEntity<KakaoUserInfo>(kakaoUserInfo, HttpStatus.OK);
 	}
 
 }
