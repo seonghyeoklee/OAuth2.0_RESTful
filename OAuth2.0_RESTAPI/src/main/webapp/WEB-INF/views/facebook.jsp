@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 		<title>Insert title here</title>
 	</head>
 	<script type="text/javascript">
@@ -39,7 +39,7 @@
 					}
 				});
 			} else {
-
+				
 			}
 		}
 		
