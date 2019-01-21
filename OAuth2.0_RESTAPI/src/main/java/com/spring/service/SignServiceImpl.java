@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.GsonBuilder;
-import com.spring.domain.FacebookUserInfo;
-import com.spring.domain.GoogleAuth;
-import com.spring.domain.GoogleUserInfo;
-import com.spring.domain.KakaoUserInfo;
+import com.spring.model.FacebookUserInfo;
+import com.spring.model.GoogleAuth;
+import com.spring.model.GoogleUserInfo;
+import com.spring.model.KakaoUserInfo;
 import com.spring.rest.FacebookUserInfoAPI;
 import com.spring.rest.GoogleOAuthAPI;
 import com.spring.rest.GoogleUserInfoAPI;

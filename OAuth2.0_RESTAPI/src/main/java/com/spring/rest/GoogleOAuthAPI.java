@@ -3,7 +3,7 @@ package com.spring.rest;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.spring.domain.GoogleAuth;
+import com.spring.model.GoogleAuth;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

@@ -1,8 +1,8 @@
 package com.spring.service;
 
-import com.spring.domain.FacebookUserInfo;
-import com.spring.domain.GoogleUserInfo;
-import com.spring.domain.KakaoUserInfo;
+import com.spring.model.FacebookUserInfo;
+import com.spring.model.GoogleUserInfo;
+import com.spring.model.KakaoUserInfo;
 
 public interface SignService {
 

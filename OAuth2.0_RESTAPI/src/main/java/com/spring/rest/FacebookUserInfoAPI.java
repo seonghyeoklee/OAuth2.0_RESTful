@@ -1,6 +1,6 @@
 package com.spring.rest;
 
-import com.spring.domain.FacebookUserInfo;
+import com.spring.model.FacebookUserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

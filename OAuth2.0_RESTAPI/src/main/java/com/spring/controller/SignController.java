@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.domain.FacebookUserInfo;
-import com.spring.domain.GoogleUserInfo;
-import com.spring.domain.KakaoUserInfo;
+import com.spring.model.FacebookUserInfo;
+import com.spring.model.GoogleUserInfo;
+import com.spring.model.KakaoUserInfo;
 import com.spring.service.SignService;
 
 @RestController

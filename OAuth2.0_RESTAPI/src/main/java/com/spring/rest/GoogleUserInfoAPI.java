@@ -1,6 +1,6 @@
 package com.spring.rest;
 
-import com.spring.domain.GoogleUserInfo;
+import com.spring.model.GoogleUserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,4 +1,4 @@
-package com.spring.domain;
+package com.spring.model;
 
 import com.google.gson.annotations.SerializedName;
 

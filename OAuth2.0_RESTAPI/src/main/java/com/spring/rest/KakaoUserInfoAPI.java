@@ -1,6 +1,6 @@
 package com.spring.rest;
 
-import com.spring.domain.KakaoUserInfo;
+import com.spring.model.KakaoUserInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
