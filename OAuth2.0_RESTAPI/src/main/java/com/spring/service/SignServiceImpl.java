@@ -10,10 +10,14 @@ import com.spring.model.FacebookUserInfo;
 import com.spring.model.GoogleAuth;
 import com.spring.model.GoogleUserInfo;
 import com.spring.model.KakaoUserInfo;
+import com.spring.model.NaverAuth;
+import com.spring.model.NaverUserInfo;
 import com.spring.rest.FacebookUserInfoAPI;
 import com.spring.rest.GoogleOAuthAPI;
 import com.spring.rest.GoogleUserInfoAPI;
 import com.spring.rest.KakaoUserInfoAPI;
+import com.spring.rest.NaverOAuthAPI;
+import com.spring.rest.NaverUserInfoAPI;
 
 import retrofit2.Response;
 
@@ -31,6 +35,12 @@ public class SignServiceImpl implements SignService{
 
 	@Autowired
 	KakaoUserInfoAPI kakaoUserInfoAPI;
+
+	@Autowired
+	NaverUserInfoAPI naverUserInfoAPI;
+
+	@Autowired
+	NaverOAuthAPI naverOAuthAPI;
 
 	@Override
 	public GoogleUserInfo getGoogleUserInfo(String code) {
@@ -78,6 +88,35 @@ public class SignServiceImpl implements SignService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	@Override
+	public NaverUserInfo getNaverUserInfo(String code, String state) {
+		try {
+			NaverAuth naverAuth = naverOAuthAPI.getAccessTokenByCode(
+					naverOAuthAPI.grantType,
+					naverOAuthAPI.clientId,
+					naverOAuthAPI.clientSecret,
+					naverOAuthAPI.redirectUri,
+					code,
+					state).execute().body();
+
+			System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(naverAuth));
+
+			String accessToken = "Bearer "+naverAuth.getAccessToken();
+			System.out.println(accessToken);
+
+			NaverUserInfo naverUserInfo = naverUserInfoAPI.userInfoByToken(accessToken).execute().body();
+
+			System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(naverUserInfo));
+
+			return naverUserInfo;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 }

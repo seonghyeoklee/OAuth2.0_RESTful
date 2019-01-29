@@ -3,6 +3,7 @@ package com.spring.service;
 import com.spring.model.FacebookUserInfo;
 import com.spring.model.GoogleUserInfo;
 import com.spring.model.KakaoUserInfo;
+import com.spring.model.NaverUserInfo;
 
 public interface SignService {
 
@@ -12,4 +13,5 @@ public interface SignService {
 
 	public KakaoUserInfo getKakaoUserInfo(String authorization);
 
+	public NaverUserInfo getNaverUserInfo(String code, String state);
 }
