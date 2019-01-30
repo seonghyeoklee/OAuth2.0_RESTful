@@ -16,7 +16,7 @@ public interface GoogleOAuthAPI {
 	String BASE_URL = "https://www.googleapis.com";
 
 	String client_id = "788806329174-6aufaqsdku9p51avh129kkusgk9i1v0t.apps.googleusercontent.com";
-	String client_secret = "";
+	String client_secret = "IgAW6i_mux3wtaJC4r1Hc-WC";
 	String redirect_uri = "http://localhost:8080";
 	String grant_type = "authorization_code";
 

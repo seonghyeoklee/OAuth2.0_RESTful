@@ -104,8 +104,7 @@ public class SignServiceImpl implements SignService{
 
 			System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(naverAuth));
 
-			String accessToken = "Bearer "+naverAuth.getAccessToken();
-			System.out.println(accessToken);
+			String accessToken = naverAuth.getTokenType() + " " + naverAuth.getAccessToken();
 
 			NaverUserInfo naverUserInfo = naverUserInfoAPI.userInfoByToken(accessToken).execute().body();
 

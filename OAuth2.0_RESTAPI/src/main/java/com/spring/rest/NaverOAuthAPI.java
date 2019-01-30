@@ -13,8 +13,8 @@ public interface NaverOAuthAPI {
 
 	String grantType = "authorization_code";
 	String clientId = "t5YCQQXeKLCv_ak9RUKO";
-	String clientSecret = "";
-	String redirectUri = "http://localhost:8080/";
+	String clientSecret = "bI3YABZmzY";
+	String redirectUri = "http://localhost:8080/redirect";
 
 	@FormUrlEncoded
 	@POST("/oauth2.0/token")
