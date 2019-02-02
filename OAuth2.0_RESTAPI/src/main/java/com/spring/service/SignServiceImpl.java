@@ -1,6 +1,12 @@
 package com.spring.service;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -117,5 +123,31 @@ public class SignServiceImpl implements SignService{
 		}
 
 		return null;
+	}
+
+	@Override
+	public Map<String, String> getApiParams() {
+
+		String redirectURI = "";
+
+		try {
+			redirectURI = URLEncoder.encode(NaverOAuthAPI.redirectUri, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		SecureRandom random = new SecureRandom();
+		String state = new BigInteger(130, random).toString();
+
+		String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+		apiURL += "&client_id=" + NaverOAuthAPI.clientId;
+		apiURL += "&redirect_uri=" + redirectURI;
+		apiURL += "&state=" + state;
+
+		Map<String, String> map = new HashMap<>();
+		map.put("state", state);
+		map.put("apiURL", apiURL);
+
+		return map;
 	}
 }

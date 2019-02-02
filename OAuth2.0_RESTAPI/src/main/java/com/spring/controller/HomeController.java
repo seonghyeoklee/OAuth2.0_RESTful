@@ -1,9 +1,6 @@
 package com.spring.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.net.URLEncoder;
-import java.security.SecureRandom;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -42,22 +39,10 @@ public class HomeController {
 	@GetMapping("/naver")
 	public String naver(HttpSession session, Model model) {
 
-		String clientId = "t5YCQQXeKLCv_ak9RUKO";
-		String redirectURI = "";
-		try {
-			redirectURI = URLEncoder.encode("http://localhost:8080/redirect", "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		SecureRandom random = new SecureRandom();
-		String state = new BigInteger(130, random).toString();
-		String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-		apiURL += "&client_id=" + clientId;
-		apiURL += "&redirect_uri=" + redirectURI;
-		apiURL += "&state=" + state;
+		Map<String, String> map = signService.getApiParams();
 
-		session.setAttribute("state", state);
-		model.addAttribute("apiURL", apiURL);
+		session.setAttribute("state", map.get("state"));
+		model.addAttribute("apiURL", map.get("apiURL"));
 
 		return "/naverlogin";
 	}

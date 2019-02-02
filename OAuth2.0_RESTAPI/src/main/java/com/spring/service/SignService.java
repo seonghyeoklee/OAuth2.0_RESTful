@@ -1,5 +1,7 @@
 package com.spring.service;
 
+import java.util.Map;
+
 import com.spring.model.FacebookUserInfo;
 import com.spring.model.GoogleUserInfo;
 import com.spring.model.KakaoUserInfo;
@@ -14,4 +16,6 @@ public interface SignService {
 	public KakaoUserInfo getKakaoUserInfo(String authorization);
 
 	public NaverUserInfo getNaverUserInfo(String code, String state);
+
+	public Map<String, String> getApiParams();
 }
